@@ -40,8 +40,8 @@ class DelegationManager:
                 continue
             desc = agent["description"]
             try:
-                cmd = [self.hermes_bin, "profile", "describe", profile, desc]
-                subprocess.run(cmd, capture_output=True, text=True, check=True)
+                cmd = [self.hermes_bin, "profile", "describe", profile, "--text", desc]
+                subprocess.run(cmd, capture_output=True, text=True, timeout=10, check=True)
                 results[profile] = True
             except Exception:
                 results[profile] = False

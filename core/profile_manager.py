@@ -106,8 +106,8 @@ class ProfileManager:
         if not self.hermes_bin or name == "default":
             return False
         try:
-            cmd = [self.hermes_bin, "profile", "describe", name, description]
-            subprocess.run(cmd, capture_output=True, text=True)
+            cmd = [self.hermes_bin, "profile", "describe", name, "--text", description]
+            subprocess.run(cmd, capture_output=True, text=True, timeout=10)
             return True
         except Exception:
             return False
