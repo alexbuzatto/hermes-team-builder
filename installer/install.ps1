@@ -43,7 +43,6 @@ import sys
 from pathlib import Path
 sys.path.insert(0, r'$ProjectRoot')
 from core.profile_manager import ProfileManager
-from core.delegation_manager import DelegationManager
 
 pm = ProfileManager(Path(r'$ProjectRoot'))
 results = pm.sync_all_agents(dry_run=$($DryRun.IsPresent))
@@ -52,9 +51,7 @@ for r in results:
     soul = '[SOUL OK]' if r['soul_installed'] else '[SOUL PENDENTE]'
     print(f" -> {r['id'].upper():<10} Profile: {r['profile']:<10} {status} {soul}")
 
-dm = DelegationManager(Path(r'$ProjectRoot'))
-dm.verify_descriptions()
-print('\n[+] Descrições semânticas de delegação registradas com sucesso!')
+print('\n[+] Perfis e personas sincronizados com sucesso!')
 "@
 
 $TempRunner = Join-Path $env:TEMP "hermes_team_install_runner.py"
