@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Backups e Logs temporários gerados por execuções locais
+backups/
+temp/
+*.log
+
+# Hermes cache e sessões locais
+.hermes/
+auth.json
+.env
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

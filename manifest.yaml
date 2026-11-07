@@ -1,0 +1,129 @@
+version: "1.0.0"
+project: "HERMES AI TEAM"
+codename: "hermes-team-builder"
+description: "Estrutura automatizada de equipe multiagentes para o Nous Research Hermes Agent"
+
+tiers:
+  premium:
+    description: "Modelos de raciocínio avançado para liderança, planejamento, arquitetura e auditoria crítica"
+    profiles:
+      - hermes
+      - athena
+      - atlas
+      - sentinel
+      - arbiter
+  intermediate:
+    description: "Modelos de alta performance e equilíbrio para engenharia, desenvolvimento e design"
+    profiles:
+      - tesla
+      - ada
+      - linus
+      - iris
+  economic:
+    description: "Modelos rápidos e econômicos para execução de testes, operações e documentação"
+    profiles:
+      - sherlock
+      - nova
+      - scribe
+
+agents:
+  - id: "hermes"
+    name: "HERMES"
+    title: "Diretor de Operações / Orquestrador Central"
+    profile: "default"
+    tier: "premium"
+    description: "Diretor de operações e orquestrador central. Coordena a equipe, decompõe solicitações, delega tarefas e garante a entrega final revisada."
+    is_orchestrator: true
+    requires_confirmation_for:
+      - "destructive_file_operations"
+      - "external_publishing"
+      - "financial_or_paid_apis"
+      - "production_deployments"
+
+  - id: "athena"
+    name: "ATHENA"
+    title: "Analista de Produto e Requisitos"
+    profile: "athena"
+    tier: "premium"
+    description: "Analisa necessidades de negócio, especifica requisitos funcionais/não-funcionais, escreve histórias de usuário e define critérios de aceitação."
+    is_orchestrator: false
+
+  - id: "atlas"
+    name: "ATLAS"
+    title: "Arquiteto de Software"
+    profile: "atlas"
+    tier: "premium"
+    description: "Projeta a arquitetura técnica, modelagem de banco de dados, padrões de projeto, topologia de microsserviços/monólitos e ADRs."
+    is_orchestrator: false
+
+  - id: "tesla"
+    name: "TESLA"
+    title: "Engenheiro de Sistemas"
+    profile: "tesla"
+    tier: "intermediate"
+    description: "Engenheiro de sistemas e integrações. Define contratos de API, mensageria, protocolos de comunicação e viabilidade técnica."
+    is_orchestrator: false
+
+  - id: "ada"
+    name: "ADA"
+    title: "Desenvolvedora Backend"
+    profile: "ada"
+    tier: "intermediate"
+    description: "Implementa regras de negócio, APIs REST/GraphQL/gRPC, persistência de dados, autenticação e testes unitários/serviço."
+    is_orchestrator: false
+
+  - id: "linus"
+    name: "LINUS"
+    title: "Desenvolvedor Frontend"
+    profile: "linus"
+    tier: "intermediate"
+    description: "Desenvolve interfaces responsivas, componentes reutilizáveis, gerenciamento de estado e integrações com APIs frontend."
+    is_orchestrator: false
+
+  - id: "iris"
+    name: "IRIS"
+    title: "Designer UX/UI"
+    profile: "iris"
+    tier: "intermediate"
+    description: "Cria jornadas de usuário, wireframes, design systems, tokens visuais (cores, tipografia) e padrões de acessibilidade."
+    is_orchestrator: false
+
+  - id: "sherlock"
+    name: "SHERLOCK"
+    title: "Especialista em QA e Testes"
+    profile: "sherlock"
+    tier: "economic"
+    description: "Investiga defeitos, planeja cenários de teste, executa testes de regressão/integração e valida evidências de funcionamento."
+    is_orchestrator: false
+
+  - id: "sentinel"
+    name: "SENTINEL"
+    title: "Especialista em Segurança Defensiva"
+    profile: "sentinel"
+    tier: "premium"
+    description: "Audita segurança defensiva, analisa vulnerabilidades (OWASP), permissões de acesso, exposição de credenciais e sanitização."
+    is_orchestrator: false
+
+  - id: "nova"
+    name: "NOVA"
+    title: "Engenheira DevOps e Infraestrutura"
+    profile: "nova"
+    tier: "economic"
+    description: "Configura pipelines CI/CD, containers Docker, monitoramento, infraestrutura como código e planos de backup/rollback."
+    is_orchestrator: false
+
+  - id: "scribe"
+    name: "SCRIBE"
+    title: "Especialista em Documentação Técnica"
+    profile: "scribe"
+    tier: "economic"
+    description: "Elabora documentação de APIs, manuais de instalação, guias do usuário, changelogs e especificações reproduzíveis."
+    is_orchestrator: false
+
+  - id: "arbiter"
+    name: "ARBITER"
+    title: "Revisor Técnico Independente"
+    profile: "arbiter"
+    tier: "premium"
+    description: "Auditor e revisor de qualidade final. Avalia código, arquitetura, testes e aderência aos requisitos antes da aprovação."
+    is_orchestrator: false

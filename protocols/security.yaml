@@ -1,0 +1,31 @@
+# Padrões e Políticas de Segurança Defensiva — HERMES AI TEAM
+version: "1.0.0"
+
+secrets_management:
+  prohibit_hardcoded_secrets: true
+  scanners:
+    - "regex_pattern_checks"
+    - "env_leak_checks"
+  git_hygiene:
+    ensure_gitignore_contains:
+      - ".env"
+      - ".env.*"
+      - "*.pem"
+      - "*.key"
+      - "node_modules/"
+      - "__pycache__/"
+      - ".hermes/sessions/"
+
+application_security:
+  owasp_compliance:
+    injection_prevention: "Uso obrigatório de queries parametrizadas (Prepared Statements / ORM seguro)"
+    broken_authentication: "Hashing de senha forte (bcrypt / argon2), JWT assinado com algoritmo explícito e expiração curta"
+    sensitive_data_exposure: "Sanitização de logs (nunca printar tokens, passwords ou cartões)"
+    broken_access_control: "Validação de autorização baseada em papéis/permissões no servidor"
+    security_misconfiguration: "Desativar modo debug em ambientes não-locais, cabeçalhos de segurança HTTP ativos"
+
+dependency_management:
+  vulnerability_audit_tools:
+    python: "pip-audit / safety"
+    node: "npm audit"
+  policy: "Zero vulnerabilidades conhecidas com severidade Alta ou Crítica permitidas em produção"

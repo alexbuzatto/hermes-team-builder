@@ -1,0 +1,37 @@
+# Padrões e Métricas de Qualidade — HERMES AI TEAM
+version: "1.0.0"
+
+code_quality:
+  clean_code: true
+  explicit_typing: true
+  meaningful_names: true
+  max_function_lines: 60
+  max_cyclomatic_complexity: 10
+  no_magic_numbers: true
+  error_handling:
+    catch_specific_exceptions: true
+    never_swallow_errors: true
+
+testing_standards:
+  unit_tests:
+    required_for_all_business_logic: true
+    frameworks:
+      python: "pytest"
+      typescript_node: "jest / vitest"
+  integration_tests:
+    required_for_api_endpoints: true
+    verify_status_codes: true
+    verify_payload_schemas: true
+  evidence_requirements:
+    real_terminal_output_mandatory: true
+    exit_code_zero_mandatory: true
+
+documentation_standards:
+  readme_mandatory_sections:
+    - "Descrição do Projeto"
+    - "Pré-requisitos"
+    - "Instalação"
+    - "Variáveis de Ambiente"
+    - "Como Executar"
+    - "Como Rodar os Testes"
+    - "Arquitetura e Decisões"
